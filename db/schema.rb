@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190401062109) do
+ActiveRecord::Schema.define(version: 20190401062357) do
 
   create_table "project_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "content",             limit: 65535
+    t.integer  "user_id"
+    t.datetime "deadline"
+    t.integer  "recruitment_numbers"
+    t.boolean  "all_or_nothing"
+    t.boolean  "call_off"
+    t.integer  "project_category_id"
+    t.string   "image"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["project_category_id"], name: "index_projects_on_project_category_id", using: :btree
+    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
   create_table "universities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -36,5 +52,7 @@ ActiveRecord::Schema.define(version: 20190401062109) do
     t.index ["university_id"], name: "index_users_on_university_id", using: :btree
   end
 
+  add_foreign_key "projects", "project_categories"
+  add_foreign_key "projects", "users"
   add_foreign_key "users", "universities"
 end

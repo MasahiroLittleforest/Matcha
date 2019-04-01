@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190401053229) do
+ActiveRecord::Schema.define(version: 20190401055206) do
 
   create_table "universities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20190401053229) do
     t.text     "profile",         limit: 65535
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "university_id"
+    t.index ["university_id"], name: "index_users_on_university_id", using: :btree
   end
 
+  add_foreign_key "users", "universities"
 end

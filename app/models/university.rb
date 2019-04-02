@@ -3,5 +3,5 @@ class University < ApplicationRecord
                    length: { maximum: 50 },
                    uniqueness: true
   
-  has_many :users
+  #has_many :users
 end

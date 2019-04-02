@@ -1,9 +1,11 @@
-class CreateProjectFavorites < ActiveRecord::Migration[5.0]
+class CreateApplikations < ActiveRecord::Migration[5.0]
   def change
-    create_table :project_favorites do |t|
+    create_table :applikations do |t|
       
       t.references :user, foreign_key: true
       t.references :project, foreign_key: true
+      t.boolean :cancel
+      t.datetime :canceled_at
       
       t.timestamps
       

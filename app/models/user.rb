@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_many :followers, through: :reverses_of_user_relationship, source: :user
   has_many :project_favorites
   has_many :likes, through: :project_favorites, source: :project
+  has_many :applikations
+  has_many :participatings, through: :applikations, source: :project
   
   
   #フォロー機能

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190402064424) do
+ActiveRecord::Schema.define(version: 20190402123547) do
+
+  create_table "applikations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.boolean  "cancel"
+    t.datetime "canceled_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["project_id"], name: "index_applikations_on_project_id", using: :btree
+    t.index ["user_id", "project_id"], name: "index_applikations_on_user_id_and_project_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_applikations_on_user_id", using: :btree
+  end
 
   create_table "comment_to_projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "comment",    limit: 65535
@@ -26,6 +38,16 @@ ActiveRecord::Schema.define(version: 20190402064424) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "project_favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_favorites_on_project_id", using: :btree
+    t.index ["user_id", "project_id"], name: "index_project_favorites_on_user_id_and_project_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_project_favorites_on_user_id", using: :btree
   end
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -72,8 +94,12 @@ ActiveRecord::Schema.define(version: 20190402064424) do
     t.index ["university_id"], name: "index_users_on_university_id", using: :btree
   end
 
+  add_foreign_key "applikations", "projects"
+  add_foreign_key "applikations", "users"
   add_foreign_key "comment_to_projects", "projects"
   add_foreign_key "comment_to_projects", "users"
+  add_foreign_key "project_favorites", "projects"
+  add_foreign_key "project_favorites", "users"
   add_foreign_key "projects", "project_categories"
   add_foreign_key "projects", "users"
   add_foreign_key "user_relationships", "users"

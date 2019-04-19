@@ -1,0 +1,21 @@
+<% if @project.comment_to_projects.any? %>
+  <ul class="media-list">
+    <% comment_to_projects.each do |comment_to_project| %>
+      <li class="media">
+        <a class="media-left" href="#">
+          <img class="img-rounded" src="/assets/f_f_object_115_s64_f_object_115_0bg" alt="user_icon_xs">
+        </a>
+        <div class="media-body">
+          <h4 class="comment-heading">
+            <%= link_to comment_to_project.user.name, user_path(comment_to_project.user) %>
+          </h4>
+          <p><%= comment_to_project.comment %></p>
+          <% if current_user == comment_to_project.user %>
+            <%= link_to '削除', comment_to_project_path(comment_to_project), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger btn-xs' %>
+            <%= link_to '編集', edit_comment_to_project_path(comment_to_project) %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

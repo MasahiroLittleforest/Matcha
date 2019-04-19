@@ -1,0 +1,6 @@
+<%= form_for(@user) do |f| %>
+  <div class="form-group">
+    <%= f.label :profile, 'プロフィール' %>
+    <%= f.text_area :profile, placeholder: 'プロフィールを入力してください', class: 'form-control', rows: 5 %>
+  </div>
+<% end %>

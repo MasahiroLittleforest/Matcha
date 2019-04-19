@@ -1,0 +1,49 @@
+/* -------ユーザーページ------- */
+.user_profile {
+  height: 8em;
+}
+
+.user_title {
+  margin-bottom: 40px;
+}
+
+.user_img {
+  margin-bottom: 30px;
+}
+
+.user_img_edit {
+  margin-bottom: 30px;
+  position: relative;
+  
+  img {
+    filter: blur(1px) brightness(80%);
+  }
+  
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.fas.fa-camera.fa-3x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+
+.user_name {
+  margin-bottom: 15px;
+}
+
+.user_profile {
+  font-size: 16px;
+}
+
+.user_tabs {
+  margin-top: 40px;
+}
+/* ---------------------------- */

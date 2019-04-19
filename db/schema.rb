@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190402123547) do
+ActiveRecord::Schema.define(version: 20190411092244) do
 
   create_table "applikations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.boolean  "cancel"
+    t.boolean  "cancel",      default: false, null: false
     t.datetime "canceled_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["project_id"], name: "index_applikations_on_project_id", using: :btree
     t.index ["user_id", "project_id"], name: "index_applikations_on_user_id_and_project_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_applikations_on_user_id", using: :btree
@@ -56,12 +56,12 @@ ActiveRecord::Schema.define(version: 20190402123547) do
     t.integer  "user_id"
     t.datetime "deadline"
     t.integer  "recruitment_numbers"
-    t.boolean  "all_or_nothing"
-    t.boolean  "call_off"
+    t.boolean  "all_or_nothing",                    default: false, null: false
+    t.boolean  "call_off",                          default: false, null: false
     t.integer  "project_category_id"
     t.string   "image"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.index ["project_category_id"], name: "index_projects_on_project_category_id", using: :btree
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end

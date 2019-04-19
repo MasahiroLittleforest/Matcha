@@ -1,0 +1,19 @@
+<div class="row university_projects">
+    <div class="projects_type_header col-md-12">
+        <div class="col-md-6">
+            <h1><%= current_user.university.name %>内のプロジェクト</h1>
+        </div>
+    </div>
+</div>
+<div class="row fresh_projects">
+    <div class="projects_type_header col-md-12">
+        <div class="projects_type col-md-3">
+            <h4>新着のプロジェクト</h4>
+        </div>
+    </div>
+    <div class="project_type_body col-md-12">
+      <%= render 'projects/projects', projects: @fresh_projects %>
+      <%= paginate @fresh_projects %>
+    </div>
+</div>
+

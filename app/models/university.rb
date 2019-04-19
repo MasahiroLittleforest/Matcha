@@ -1,7 +1,5 @@
 class University < ApplicationRecord
-  validates :name, presence: true,
-                   length: { maximum: 50 },
-                   uniqueness: true
-  
-  #has_many :users
+  has_many :users
+  has_many :projects, through: :users
+  has_many :reverses_of_applikation, through: :projects
 end

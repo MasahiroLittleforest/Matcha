@@ -1,32 +1,63 @@
 <header>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-epanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">App Name</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <%if logged_in? %>
-            <li><%= link_to 'Users', users_path %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to 'マイページ', user_path(current_user) %></li>
-                <li role="separator" class="driver"></li>
-                <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to 'Signup', signup_path %></li>
-            <li><%= link_to 'Login', login_path %></li>
-          <% end %>
-        </ul>
+      <div class="col-xs-12">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-epanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Matcha</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right menu_first-level">
+            <%if logged_in? %>
+              <li><%= link_to 'プロジェクトをはじめる', new_project_path %></li>
+              <li>
+                <%= link_to 'プロジェクトをさがす', projects_path %>
+                <% 
+=begin
+                %>
+                <ul class="menu_second-level">
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                  <li><%#= link_to '', %></li>
+                </ul>
+                <%
+=end
+                %>
+              </li>
+  
+              <li><%#= link_to 'Users', users_path %></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'マイページ', user_path(current_user) %></li>
+                  <li role="separator" class="driver"></li>
+                  <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to '新規登録', signup_path %></li>
+              <li><%= link_to 'ログイン', login_path %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>

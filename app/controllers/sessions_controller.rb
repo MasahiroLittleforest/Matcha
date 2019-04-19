@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     password = params[:session][:password]
     if login(email, password)
       flash[:success] = 'ログインしました。'
-      redirect_to root_url
+      redirect_to projects_url
     else
       flash.now[:danger] = 'ログインできませんでした。'
       render 'new'
@@ -19,16 +19,4 @@ class SessionsController < ApplicationController
     flash[:success] = 'ログアウトしました。'
     redirect_to root_url
   end
-  
-  
-  private
-    def login(email, password)
-      @user = User.find_by(email: email)
-      if @user && @user.authenticate(password)
-        session[:user_id] = @user.id
-        return true
-      else
-        return false
-      end
-    end
 end

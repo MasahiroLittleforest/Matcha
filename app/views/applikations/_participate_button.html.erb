@@ -1,0 +1,17 @@
+<%# すでにキャンセルしたプロジェクトには、「キャンセル」ボタンは表示したくない %>
+<%# できればキャンセル済みのプロジェクトには、 「もう一度参加する」ボタンを表示したい%>
+
+<% unless @project.call_off || @project.deadline.past? %>
+  <% if current_user.participating?(@project) %>
+    <% if current_user.applikations.find_by(project_id: @project.id).cancel %>
+      <%= link_to 'もう一度参加する', rejoin_applikation_path(@project), method: :put, class: 'btn btn-primary btn-block' %>
+    <% else %>
+      <%= link_to 'キャンセルする', cancel_applikation_path(@project), method: :put, class: 'btn btn-default btn-block' %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.applikations.build) do |f| %>
+      <%= hidden_field_tag :project_id, @project.id %>
+      <%= f.submit '参加する', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+<% end %>

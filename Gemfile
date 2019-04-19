@@ -53,3 +53,15 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'kaminari'
+
+gem 'carrierwave'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
+gem 'pry-byebug', group: :development
+
+gem 'hirb'         # 出力結果を表として出力するgem
+gem 'hirb-unicode'  # マルチバイト文字の表示を補正するgem
+gem 'jquery-turbolinks'
+gem 'gon' #Railsのインスタンス変数をJavaScriptで使えるようにする

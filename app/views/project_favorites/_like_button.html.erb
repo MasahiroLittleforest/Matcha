@@ -1,0 +1,11 @@
+<% if current_user.liking?(@project) %>
+  <%= link_to project_favorite_path(project_id: @project.id), method: :delete do %>
+    <i class="fas fa-star"></i>
+    <span>いいね</span>
+  <% end %>
+<% else %>
+  <%= link_to project_favorites_path(project_id: @project.id), method: :post do %>
+    <i class="far fa-star"></i>
+    <span>いいね</span>
+  <% end %>
+<% end %>

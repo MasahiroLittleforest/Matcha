@@ -1,0 +1,5 @@
+<% if current_user == @project.user %>
+  <% unless @project.call_off || @project.deadline.past? %>
+    <%= link_to 'このプロジェクトを中止する', call_off_project_path(@project), method: :put, class: 'btn btn-danger btn-block' %>
+  <% end %>
+<% end %>

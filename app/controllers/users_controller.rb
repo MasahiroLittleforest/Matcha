@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :destroy]
   
+  
   def index
     @users = User.all.page(params[:page])
   end
 
   def show
     @user = User.find(params[:id])
+    @projects = Project.all.order(created_at: :DESC) #降順表示が効いていない
   end
 
   def new
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      login_url @user
+      login(@user.email, @user.password)
       flash[:success] = 'ユーザーを登録しました。'
       redirect_to root_url
     else
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    if @user.update(user_params_params)
+    if @user.update(user_params)
       flash[:success] = 'ユーザー情報を更新しました。'
       redirect_to @user
     else
@@ -62,11 +64,22 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+  def likes
+    @user = User.find(params[:id])
+    @likes = @user.likes.page(params[:page])
+    counts(@user)
+  end
+  
+  def participatings
+    @user = User.find(params[:id])
+    @participatings = @user.participatings.page(params[:page])
+    counts(@user)
+  end
   
   
   private
   
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :profile)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :university_name, :image, :profile)
     end
 end

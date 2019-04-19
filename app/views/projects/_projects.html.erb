@@ -1,47 +1,48 @@
-<% projects.each do |project| %>
-  <div class="col-xs-12 col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <div class="thumbnail_img">
-        <a href="/projects/<%= project.id %>">
-          <% unless project.image.blank? %>
-            <img class="thumbnail_project_img img-responsive" src="<%= project.image %>">
-          <% else %>
-            <img class="thumbnail_project_img img-responsive" src="../assets/default.png">
-          <% end %>
-          <%= render 'projects/ribbon', project: project %>
-        </a>
-      </div>
-      <div class="caption">
-        <div class="thumbnail_project_title">
-          <h5><%= link_to project.title, project_path(project) %></h5>
+<% if projects.any? %>
+  <% projects.each do |project| %>
+    <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="thumbnail">
+        <div class="thumbnail_img">
+          <a href="/projects/<%= project.id %>">
+            <% unless project.image.blank? %>
+              <img class="thumbnail_project_img img-responsive" src="<%= project.image %>">
+            <% else %>
+              <img class="thumbnail_project_img img-responsive" src="../assets/default.png">
+            <% end %>
+            <%= render 'projects/ribbon', project: project %>
+          </a>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <p><i class="fas fa-user"></i> <%= link_to project.user.name.truncate(11), user_path(project.user) %></p>
+        <div class="caption">
+          <div class="thumbnail_project_title">
+            <h5><%= link_to project.title, project_path(project) %></h5>
           </div>
-          <div class="col-md-6">
-            <p><i class="fas fa-tag"></i> <%= project.project_category.name.truncate(6) %></p>
+          <div class="row">
+            <div class="col-md-6">
+              <p><i class="fas fa-user"></i> <%= link_to project.user.name.truncate(11), user_path(project.user) %></p>
+            </div>
+            <div class="col-md-6">
+              <p><i class="fas fa-tag"></i> <%= project.project_category.name.truncate(6) %></p>
+            </div>
           </div>
+          <p>募集人数 <%= project.recruitment_numbers %>人</p>
+          <p>現在参加者 <%= project.reverses_of_applikation.where(cancel: false).count %>人</p>
+          <p><i class="far fa-clock"></i>
+            <% if ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 0 %>
+              あと0日
+            <% elsif ((project.deadline - DateTime.now) / 60 / 60).floor < 1 %>
+              あと<%= ((project.deadline - DateTime.now) / 60).floor %>分
+            <% elsif ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 1 %>
+              あと<%= ((project.deadline - DateTime.now) / 60 / 60).floor %>時間
+            <% else %>
+              あと<%= ((project.deadline - DateTime.now) / 24 / 60 / 60).floor %>日
+            <% end %>
+          </p>
+          <%= render 'projects/progress-bar', project: project %>
         </div>
-        <p>募集人数 <%= project.recruitment_numbers %>人</p>
-        <p>現在参加者 <%= project.reverses_of_applikation.where(cancel: false).count %>人</p>
-        <p><i class="far fa-clock"></i>
-          <% if ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 0 %>
-            あと0日
-          <% elsif ((project.deadline - DateTime.now) / 60 / 60).floor < 1 %>
-            あと<%= ((project.deadline - DateTime.now) / 60).floor %>分
-          <% elsif ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 1 %>
-            あと<%= ((project.deadline - DateTime.now) / 60 / 60).floor %>時間
-          <% else %>
-            あと<%= ((project.deadline - DateTime.now) / 24 / 60 / 60).floor %>日
-          <% end %>
-        </p>
-        <%= render 'projects/progress-bar', project: project %>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
-
 <%# 画像かタイトルをクリックすればそのプロジェクトの詳細ページへ飛ぶようにする %>
 <%# プログレスバーや数字はJSでリアルタイムに動かす %>
 <%# サムネイルの高さ合わせる(比率は変えたくない) %>

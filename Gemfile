@@ -65,7 +65,7 @@ gem 'hirb'         # 出力結果を表として出力するgem
 gem 'hirb-unicode'  # マルチバイト文字の表示を補正するgem
 gem 'jquery-turbolinks'
 gem 'gon' #Railsのインスタンス変数をJavaScriptで使えるようにする
-
+gem 'rails_12factor', group: :production #herokuのログ確認
 
 group :production do
   gem 'pg', '0.21.0'

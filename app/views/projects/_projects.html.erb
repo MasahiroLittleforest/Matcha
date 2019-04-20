@@ -27,8 +27,8 @@
           <p>募集人数 <%= project.recruitment_numbers %>人</p>
           <p>現在参加者 <%= project.reverses_of_applikation.where(cancel: false).count %>人</p>
           <p><i class="far fa-clock"></i>
-            <% if ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 0 %>
-              あと0日
+            <% if ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 0 || project.call_off %>
+              終了
             <% elsif ((project.deadline - DateTime.now) / 60 / 60).floor < 1 %>
               あと<%= ((project.deadline - DateTime.now) / 60).floor %>分
             <% elsif ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 1 %>

@@ -11,12 +11,4 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
-  
-    def counts
-      @count_projects = user.projects.count
-      @count_followings = user.followings.count
-      @count_followers = user.followers.count
-      @count_participatings = user.participatings.count
-      @count_participants = project.participants.count
-    end
 end

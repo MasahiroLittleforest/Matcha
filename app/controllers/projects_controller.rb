@@ -79,6 +79,6 @@ class ProjectsController < ApplicationController
     end
     
     def university_projects
-      university_projects = University.find_by(id: current_user.university_id).projects.order(created_at: :DESC).page(params[:page]).per(20)
+      University.find_by(id: current_user.university_id).projects.order(created_at: :DESC).page(params[:page]).per(20)
     end
 end

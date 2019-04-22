@@ -218,3 +218,60 @@
 .project_owner {
   margin-bottom: 15px;
 }
+
+
+@media (max-width:321px) {
+  .projects_type > h4 {
+    font-size: 15px;
+  }
+  
+  .see_more {
+    margin-top: 4px;
+  }
+}
+
+@media (max-width:767px) {
+  .see_all {
+    font-size: 12px;
+  }
+  
+  .see_more {
+    float: right;
+  }
+  
+  .projects_type_header > h1 {
+    font-size: 24px;
+  }
+  
+  .project_result > h2 {
+    font-size: 13px;
+    padding-bottom: 15px;
+  }
+  
+  .project_title > h1 {
+    font-size: 20px;
+  }
+  
+  .project_recruitment_numbers > h2 {
+   font-size: 20px; 
+  }
+  
+  .project_participants_number > h2 {
+    font-size: 20px;
+  }
+  
+  .project_deadline > h2 {
+    font-size: 20px;
+  }
+  
+  .nav-tabs.nav-justified > li {
+    float: left;
+    padding: 0;
+  }
+}
+
+@media (max-width:1200px) {
+  .see_all {
+    margin-top: 23px;
+  }
+}

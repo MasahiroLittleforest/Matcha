@@ -1,3 +1,10 @@
+<div class="followers_header text-center col-md-12">
+  <h1>フォロワー</h1>
+</div>
 <div class="col-md-12">
-  <%= render 'users/users', users: @followers %>
+  <% if @followers.count == 0 %>
+    <p class="col-md-12">フォロワーはいません</p>
+  <% else %>
+    <%= render 'users/users', users: @followers %>
+  <% end %>
 </div>

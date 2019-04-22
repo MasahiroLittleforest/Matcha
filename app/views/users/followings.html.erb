@@ -1,3 +1,10 @@
+<div class="followings_header text-center col-md-12">
+  <h1>フォロー</h1>
+</div>
 <div class="col-md-12">
-  <%= render 'users/users', users: @followings %>
+  <% if @followings.count == 0 %>
+    <p class="col-md-12">フォローしているユーザーはいません</p>
+  <% else %>
+    <%= render 'users/users', users: @followings %>
+  <% end %>
 </div>

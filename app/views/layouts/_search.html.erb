@@ -1,0 +1,9 @@
+<%= search_form_for @search, url: search_projects_path do |f| %>
+  <div class="input-group">
+    <%= f.text_field :title_or_content_cont, placeholder: 'キーワード検索', required: true, class: 'form-control' %>
+    <span class="input-group-btn">
+      <%= f.submit "検索", class: 'btn btn-default' %>
+      <i></i>
+    </span>
+  </div>
+<% end %>

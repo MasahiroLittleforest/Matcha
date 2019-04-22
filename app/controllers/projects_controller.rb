@@ -1,8 +1,11 @@
 class ProjectsController < ApplicationController
+  before_action :require_user_logged_in
+  before_action :set_search
+  
   def index
     @all_projects = university_projects
     @fresh_projects = university_projects.where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false, created_at: 1.week.ago..DateTime.now)
-    @popular_projects = university_projects.joins(:reverses_of_applikation).where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false).merge(Applikation.where(cancel: false)).group(:project_id).having('count(*) >= 10')
+    @popular_projects = university_projects.joins(:reverses_of_applikation).where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false).merge(Applikation.where(cancel: false)).group(:id).having('count(*) >= 10')
     @closing_soon_projects = university_projects.where(call_off: false, deadline: DateTime.now..5.days.since)
   end
 
@@ -10,8 +13,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @comment_to_projects = CommentToProject.all
     @comment_to_project = CommentToProject.new
-    @not_cenceled_participants = User.joins(:applikations).where(applikations: { project_id: @project.id, cancel: false }).group(:user_id)
-    @canceled_participants = User.joins(:applikations).where(applikations: { project_id: @project.id, cancel: true }).group(:user_id)
+    @not_cenceled_participants = User.joins(:applikations).where(applikations: { project_id: @project.id, cancel: false }).group(:id)
+    @canceled_participants = User.joins(:applikations).where(applikations: { project_id: @project.id, cancel: true }).group(:id)
   end
 
   def new
@@ -55,6 +58,10 @@ class ProjectsController < ApplicationController
     count(@project)
   end
   
+  def university_projects
+      University.find_by(id: current_user.university_id).projects.order(created_at: :DESC).page(params[:page]).per(20)
+  end
+  
   def all_projects
     @all_projects = university_projects
   end
@@ -64,21 +71,22 @@ class ProjectsController < ApplicationController
   end
   
   def popular_projects
-    @popular_projects = university_projects.joins(:reverses_of_applikation).where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false).merge(Applikation.where(cancel: false)).group(:project_id).having('count(*) >= 10')
+    @popular_projects = university_projects.joins(:reverses_of_applikation).where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false).merge(Applikation.where(cancel: false)).group(:id).having('count(*) >= 10')
   end
   
   def closing_soon_projects
     @closing_soon_projects = university_projects.where(call_off: false, deadline: DateTime.now..5.days.since).order(created_at: :DESC).page(params[:page]).per(20)
   end
 
+  def searched_projects
+    @searched_projects = @search.result(distinct: true)
+  end
+  
+  
   
   
   private
     def project_params
       params.require(:project).permit(:title, :content, :project_category_id, :recruitment_numbers, :all_or_nothing, :deadline, :image, :call_off)
-    end
-    
-    def university_projects
-      University.find_by(id: current_user.university_id).projects.order(created_at: :DESC).page(params[:page]).per(20)
     end
 end

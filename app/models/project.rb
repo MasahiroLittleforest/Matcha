@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  include SessionsHelper
+  
   belongs_to :user
   belongs_to :project_category
   
@@ -25,6 +27,4 @@ class Project < ApplicationRecord
       errors.add(:deadline, "can not specify your past date as your deadline.")
     end
   end
-
-
 end

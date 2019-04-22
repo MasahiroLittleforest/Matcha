@@ -13,7 +13,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right menu_first-level">
-            <%if logged_in? %>
+            <% if logged_in? %>
+              <li class="search-nav col-md-5">
+                <%= render 'layouts/search' %>
+              </li>
               <li><%= link_to 'プロジェクトをはじめる', new_project_path %></li>
               <li>
                 <%= link_to 'プロジェクトをさがす', projects_path %>

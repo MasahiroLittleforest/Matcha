@@ -23,10 +23,6 @@ Rails.application.routes.draw do
     end
   end
   
-  get 'projects/all', to: 'projects#all_projects'
-  get 'projects/fresh', to: 'projects#fresh_projects'
-  get 'projects/popular', to: 'projects#popular_projects'
-  get 'projects/closing_soon', to: 'projects#closing_soon_projects'
   #get 'projects/category', to: 'projects#category_index'
   #get 'projects/category/language', to: 'projects#category_index'
   #get 'projects/category/club', to: 'projects#category_index'
@@ -48,6 +44,13 @@ Rails.application.routes.draw do
     member do
       put :call_off
       resources :comment_to_projects, only: [:index, :create, :edit, :update, :destroy]
+    end
+    collection do
+      get 'all', to: 'projects#all_projects'
+      get 'fresh', to: 'projects#fresh_projects'
+      get 'popular', to: 'projects#popular_projects'
+      get 'closing_soon', to: 'projects#closing_soon_projects'
+      get 'search', to: 'projects#searched_projects'
     end
   end
   resources :user_relationships, only: [:create, :destroy]

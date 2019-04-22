@@ -16,6 +16,10 @@
  *= require bootstrap-datetimepicker
  */
 
+.search-nav {
+  width: 300px;
+  padding: 9px;
+}
 
 footer {
   padding: 20px;

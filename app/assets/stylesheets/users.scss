@@ -49,7 +49,7 @@
 /* ---------------------------- */
 
 @media (max-width:767px) {
-  .nav-tabs.nav-justified > li {
+  .nav-item {
     float: left;
     padding: 10px 0;
   }
@@ -62,7 +62,7 @@
 }
 
 @media (min-width:768px) {
-  .nav-tabs.nav-justified > li {
-    padding: 10px 0;
+  .nav-item {
+    padding: 10px 0px;
   }
 }

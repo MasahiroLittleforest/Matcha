@@ -264,14 +264,14 @@
     font-size: 20px;
   }
   
-  .nav-tabs.nav-justified > li {
+  .nav-item {
     float: left;
     padding: 10px 0;
   }
 }
 
 @media (min-width:768px) {
-  .nav-tabs.nav-justified > li {
+  .nav-item {
     padding: 10px 0;
   }
 }

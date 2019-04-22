@@ -1,0 +1,718 @@
+@charset "UTF-8";
+/* ------------------- */
+/* line 3, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.thumbnail {
+  height: 355px;
+  width: 100%;
+  margin-bottom: 25px;
+  display: inline-block;
+  position: relative;
+}
+
+/* line 11, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.thumbnail:hover {
+  box-shadow: 0 2px 2px gray;
+  transition: 0.1s;
+}
+
+/* line 16, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.thumbnail_img {
+  width: 100%;
+  height: 140px;
+  background-color: #dcdcdc;
+}
+
+/* line 22, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.thumbnail_project_img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* line 28, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.thumbnail_project_title {
+  height: 2em;
+  margin-bottom: 10px;
+}
+
+/* line 33, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.progress {
+  margin-bottom: 0;
+}
+
+/* line 37, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.progress-bar {
+  max-width: 100%;
+}
+
+/* line 41, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* -----サムネイルにかけるリボン----- */
+/* line 47, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  position: absolute;
+}
+
+/* line 54, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon.closed::before,
+.ribbon.closed::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid #a52a2a;
+}
+
+/* line 63, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon.called_off::before,
+.ribbon.called_off::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid #a52a2a;
+}
+
+/* line 72, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon.closing_soon::before,
+.ribbon.closing_soon::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid #d2691e;
+}
+
+/* line 81, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon span.closed {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 7px 0;
+  background-color: #d9534f;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font: 700 11px/1 'Lato', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* line 94, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon span.called_off {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 7px 0;
+  background-color: #d9534f;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font: 700 11px/1 'Lato', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* line 107, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon span.closing_soon {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 7px 0;
+  background-color: #ff8c00;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font: 700 11px/1 'Lato', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* line 120, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon {
+  top: -7px;
+  left: -7px;
+}
+
+/* line 125, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon::before,
+.ribbon::after {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+/* line 131, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon::before {
+  top: 0;
+  right: 17px;
+}
+
+/* line 136, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon::after {
+  bottom: 17px;
+  left: 0;
+}
+
+/* line 141, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.ribbon span {
+  right: -35px;
+  top: 30px;
+  transform: rotate(-45deg);
+}
+
+/* ------------------------------------ */
+/* -------プロジェクトページ------ */
+/* line 151, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.project_detail_img {
+  width: 100%;
+  height: 375px;
+  display: flex;
+  background-color: #dcdcdc;
+}
+
+/* line 158, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.project_img {
+  max-width: 100%;
+  max-height: 375px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* line 165, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.fas.fa-star {
+  color: #ffa500;
+}
+
+/* line 169, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.project_tabs {
+  margin-top: 40px;
+}
+
+/* line 173, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.project_content {
+  font-size: 20px;
+}
+
+/* line 177, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.tab-content {
+  margin-top: 25px;
+}
+
+/* ------------------------------- */
+/* line 183, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.row.university_projects {
+  margin-bottom: 45px;
+}
+
+/* line 187, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.row.fresh_projects {
+  margin-bottom: 40px;
+}
+
+/* line 191, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.row.popular_projects {
+  margin-bottom: 40px;
+}
+
+/* line 195, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.row.closing_soon_projects {
+  margin-bottom: 40px;
+}
+
+/* line 199, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.projects_type {
+  margin-bottom: 10px;
+}
+/* line 202, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.projects_type h {
+  display: inline-block;
+}
+
+/* line 207, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.projects_type_header {
+  margin-bottom: 5px;
+}
+
+/* line 211, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.see_all {
+  margin-top: 25px;
+}
+
+/* line 215, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.see_more {
+  margin-top: 5px;
+}
+
+/* line 219, /home/ec2-user/environment/matching-app/app/assets/stylesheets/projects.scss */
+.project_owner {
+  margin-bottom: 15px;
+}
+/* line 1, /home/ec2-user/environment/matching-app/app/assets/stylesheets/toppages.scss */
+.toppage-cover {
+  width: 100%;
+}
+@charset "UTF-8";
+/* -------ユーザーページ------- */
+/* line 3, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_profile {
+  height: 8em;
+}
+
+/* line 7, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_title {
+  margin-bottom: 40px;
+}
+
+/* line 11, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_img {
+  margin-bottom: 30px;
+}
+
+/* line 15, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_img_edit {
+  margin-bottom: 30px;
+  position: relative;
+}
+/* line 19, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_img_edit img {
+  filter: blur(1px) brightness(80%);
+}
+/* line 23, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_img_edit :hover {
+  cursor: pointer;
+}
+
+/* line 28, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.fas.fa-camera.fa-3x {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+/* line 39, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_name {
+  margin-bottom: 15px;
+}
+
+/* line 43, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_profile {
+  font-size: 16px;
+}
+
+/* line 47, /home/ec2-user/environment/matching-app/app/assets/stylesheets/users.scss */
+.user_tabs {
+  margin-top: 40px;
+}
+
+/* ---------------------------- */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ *
+
+ */
+
+
+.search-nav {
+  width: 300px;
+  padding: 9px;
+}
+
+footer {
+  padding: 20px;
+}
+/*!
+ * Datetimepicker for Bootstrap 3
+ * version : 4.17.47
+ * https://github.com/Eonasdan/bootstrap-datetimepicker/
+ */
+
+.bootstrap-datetimepicker-widget {
+  list-style: none;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  display: block;
+  margin: 2px 0;
+  padding: 4px;
+  width: 19em;
+}
+@media (min-width: 768px) {
+  .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+    width: 38em;
+  }
+}
+@media (min-width: 992px) {
+  .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+    width: 38em;
+  }
+}
+@media (min-width: 1200px) {
+  .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+    width: 38em;
+  }
+}
+.bootstrap-datetimepicker-widget.dropdown-menu:before,
+.bootstrap-datetimepicker-widget.dropdown-menu:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  top: -7px;
+  left: 7px;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid white;
+  top: -6px;
+  left: 8px;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.top:before {
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #ccc;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  bottom: -7px;
+  left: 6px;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.top:after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid white;
+  bottom: -6px;
+  left: 7px;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.pull-right:before {
+  left: auto;
+  right: 6px;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu.pull-right:after {
+  left: auto;
+  right: 7px;
+}
+.bootstrap-datetimepicker-widget .list-unstyled {
+  margin: 0;
+}
+.bootstrap-datetimepicker-widget a[data-action] {
+  padding: 6px 0;
+}
+.bootstrap-datetimepicker-widget a[data-action]:active {
+  box-shadow: none;
+}
+.bootstrap-datetimepicker-widget .timepicker-hour,
+.bootstrap-datetimepicker-widget .timepicker-minute,
+.bootstrap-datetimepicker-widget .timepicker-second {
+  width: 54px;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 0;
+}
+.bootstrap-datetimepicker-widget button[data-action] {
+  padding: 6px;
+}
+.bootstrap-datetimepicker-widget .btn[data-action="incrementHours"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Increment Hours";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="incrementMinutes"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Increment Minutes";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="decrementHours"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Decrement Hours";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="decrementMinutes"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Decrement Minutes";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="showHours"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Show Hours";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="showMinutes"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Show Minutes";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="togglePeriod"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Toggle AM/PM";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="clear"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Clear the picker";
+}
+.bootstrap-datetimepicker-widget .btn[data-action="today"]::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Set the date to today";
+}
+.bootstrap-datetimepicker-widget .picker-switch {
+  text-align: center;
+}
+.bootstrap-datetimepicker-widget .picker-switch::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Toggle Date and Time Screens";
+}
+.bootstrap-datetimepicker-widget .picker-switch td {
+  padding: 0;
+  margin: 0;
+  height: auto;
+  width: auto;
+  line-height: inherit;
+}
+.bootstrap-datetimepicker-widget .picker-switch td span {
+  line-height: 2.5;
+  height: 2.5em;
+  width: 100%;
+}
+.bootstrap-datetimepicker-widget table {
+  width: 100%;
+  margin: 0;
+}
+.bootstrap-datetimepicker-widget table td,
+.bootstrap-datetimepicker-widget table th {
+  text-align: center;
+  border-radius: 4px;
+}
+.bootstrap-datetimepicker-widget table th {
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
+}
+.bootstrap-datetimepicker-widget table th.picker-switch {
+  width: 145px;
+}
+.bootstrap-datetimepicker-widget table th.disabled,
+.bootstrap-datetimepicker-widget table th.disabled:hover {
+  background: none;
+  color: #777777;
+  cursor: not-allowed;
+}
+.bootstrap-datetimepicker-widget table th.prev::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Previous Month";
+}
+.bootstrap-datetimepicker-widget table th.next::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  content: "Next Month";
+}
+.bootstrap-datetimepicker-widget table thead tr:first-child th {
+  cursor: pointer;
+}
+.bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+  background: #eeeeee;
+}
+.bootstrap-datetimepicker-widget table td {
+  height: 54px;
+  line-height: 54px;
+  width: 54px;
+}
+.bootstrap-datetimepicker-widget table td.cw {
+  font-size: .8em;
+  height: 20px;
+  line-height: 20px;
+  color: #777777;
+}
+.bootstrap-datetimepicker-widget table td.day {
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
+}
+.bootstrap-datetimepicker-widget table td.day:hover,
+.bootstrap-datetimepicker-widget table td.hour:hover,
+.bootstrap-datetimepicker-widget table td.minute:hover,
+.bootstrap-datetimepicker-widget table td.second:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+.bootstrap-datetimepicker-widget table td.old,
+.bootstrap-datetimepicker-widget table td.new {
+  color: #777777;
+}
+.bootstrap-datetimepicker-widget table td.today {
+  position: relative;
+}
+.bootstrap-datetimepicker-widget table td.today:before {
+  content: '';
+  display: inline-block;
+  border: solid transparent;
+  border-width: 0 0 7px 7px;
+  border-bottom-color: #337ab7;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: #337ab7;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.bootstrap-datetimepicker-widget table td.active.today:before {
+  border-bottom-color: #fff;
+}
+.bootstrap-datetimepicker-widget table td.disabled,
+.bootstrap-datetimepicker-widget table td.disabled:hover {
+  background: none;
+  color: #777777;
+  cursor: not-allowed;
+}
+.bootstrap-datetimepicker-widget table td span {
+  display: inline-block;
+  width: 54px;
+  height: 54px;
+  line-height: 54px;
+  margin: 2px 1.5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.bootstrap-datetimepicker-widget table td span:hover {
+  background: #eeeeee;
+}
+.bootstrap-datetimepicker-widget table td span.active {
+  background-color: #337ab7;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.bootstrap-datetimepicker-widget table td span.old {
+  color: #777777;
+}
+.bootstrap-datetimepicker-widget table td span.disabled,
+.bootstrap-datetimepicker-widget table td span.disabled:hover {
+  background: none;
+  color: #777777;
+  cursor: not-allowed;
+}
+.bootstrap-datetimepicker-widget.usetwentyfour td.hour {
+  height: 27px;
+  line-height: 27px;
+}
+.bootstrap-datetimepicker-widget.wider {
+  width: 21em;
+}
+.bootstrap-datetimepicker-widget .datepicker-decades .decade {
+  line-height: 1.8em !important;
+}
+.input-group.date .input-group-addon {
+  cursor: pointer;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

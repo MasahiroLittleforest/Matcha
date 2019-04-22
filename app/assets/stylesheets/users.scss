@@ -51,7 +51,7 @@
 @media (max-width:767px) {
   .nav-tabs.nav-justified > li {
     float: left;
-    padding: 0;
+    padding: 10px 0;
   }
   
   .user_tabs {
@@ -63,6 +63,6 @@
 
 @media (min-width:768px) {
   .nav-tabs.nav-justified > li {
-    padding: 0;
+    padding: 10px 0;
   }
 }

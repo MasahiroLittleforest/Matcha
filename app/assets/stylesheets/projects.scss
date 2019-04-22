@@ -264,9 +264,10 @@
     font-size: 20px;
   }
   
-  .nav-item {
+  .nav-tabs.nav-justified > li {
     float: left;
-    padding: 10px 0;
+    padding: 0;
+    margin: 0;
   }
 }
 

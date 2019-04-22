@@ -47,3 +47,22 @@
   margin-top: 40px;
 }
 /* ---------------------------- */
+
+@media (max-width:767px) {
+  .nav-tabs.nav-justified > li {
+    float: left;
+    padding: 0;
+  }
+  
+  .user_tabs {
+    .nav-link {
+     font-size: 11px; 
+    }
+  }
+}
+
+@media (min-width:768px) {
+  .nav-tabs.nav-justified > li {
+    padding: 0;
+  }
+}

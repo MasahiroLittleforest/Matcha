@@ -270,6 +270,12 @@
   }
 }
 
+@media (min-width:768px) {
+  .nav-tabs.nav-justified > li {
+    padding: 0;
+  }
+}
+
 @media (max-width:1200px) {
   .see_all {
     margin-top: 23px;

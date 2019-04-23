@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @projects = Project.all.order(created_at: :DESC) #降順表示が効いていない
+    @not_cancelled_paticipatings = Project.joins(:reverses_of_applikation).where(applikations: { user_id: @user.id, cancel: false }).group(:id)
   end
 
   def new

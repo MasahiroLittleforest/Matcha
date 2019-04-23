@@ -23,7 +23,7 @@
     <% if @project.image.present? %>
       <%= image_tag @project.image.to_s, class: 'project_img img-responsive' %>
     <% else %>
-      <img class="project_img img-responsive" src="../assets/default.png">
+      <%#<img class="project_img img-responsive" src="../assets/default.png">%>
     <% end %>
   </div>
 </div>
@@ -36,7 +36,7 @@
   </div>
   <div class="project_participants_number row">
     <h2 class="col-xs-7">現在参加者</h2>
-    <h2 class="text-right col-xs-5"><%= @project.reverses_of_applikation.where(cancel: false).count %>人</h2>
+    <h2 class="text-right col-xs-5"><%= @not_canceled_participants.length %>人</h2>
   </div>
   <div class="project_deadline row">
     <h2 class="col-xs-3">締切</h2>
@@ -71,10 +71,10 @@
       <a class="nav-link active" href="#project_content" data-toggle="tab">活動内容</a>
     </li>
     <li class="nav-item col-xs-4">
-      <a class="nav-link" href="#project_participants">参加者</a>
+      <a class="nav-link" href="#project_participants">参加者 <span class="badge"><%= @not_canceled_participants.length %></span></a>
     </li>
     <li class="nav-item col-xs-4">
-      <a class="nav-link" href="#project_comments">コメント</a>
+      <a class="nav-link" href="#project_comments">コメント <span class="badge"><%= @project.comment_to_projects.count %></span></a>
     </li>
   </ul>
   <div class="tab-content">
@@ -83,7 +83,7 @@
     </div>
     <div id="project_participants" class="tab-pane">
       <p>参加しているユーザー</p>
-      <%= render 'users/users', users: @not_cenceled_participants %>
+      <%= render 'users/users', users: @not_canceled_participants %>
       <p>キャンセルしたユーザー</p>
       <%= render 'users/users', users: @canceled_participants %>
     </div>

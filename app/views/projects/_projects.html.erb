@@ -7,7 +7,7 @@
             <% unless project.image.blank? %>
               <img class="thumbnail_project_img img-responsive" src="<%= project.image %>">
             <% else %>
-              <img class="thumbnail_project_img img-responsive" src="../assets/default.png">
+              <%#<img class="thumbnail_project_img img-responsive" src="../assets/default.png">    カテゴリーごとにデフォルトの画像を変える%>
             <% end %>
             <%= render 'projects/ribbon', project: project %>
           </a>
@@ -24,8 +24,6 @@
               <p><i class="fas fa-tag"></i> <%= project.project_category.name.truncate(6) %></p>
             </div>
           </div>
-          <p>募集人数 <%= project.recruitment_numbers %>人</p>
-          <p>現在参加者 <%= project.reverses_of_applikation.where(cancel: false).count %>人</p>
           <p><i class="far fa-clock"></i>
             <% if ((project.deadline - DateTime.now) / 24 / 60 / 60).floor < 0 || project.call_off %>
               終了
@@ -37,6 +35,8 @@
               あと<%= ((project.deadline - DateTime.now) / 24 / 60 / 60).floor %>日
             <% end %>
           </p>
+          <p>募集人数 <%= project.recruitment_numbers %>人</p>
+          <p>現在参加者 <%= project.reverses_of_applikation.where(cancel: false).count %>人</p>
           <%= render 'projects/progress-bar', project: project %>
         </div>
       </div>

@@ -1,0 +1,6 @@
+<% if @project.image.present? %>
+  <%= image_tag @project.image.to_s, class: 'project_img img-responsive' %>
+<% elsif @project.project_category.name == '' %>
+  <img class="project_img" src="/assets/default_project_image_<%= @default_project_image_id %>" %>
+  <%#<img class="project_img img-responsive" src="../assets/default.png">%>
+<% end %>

@@ -33,7 +33,7 @@
 <%# ユーザープロフィール %>
 <% if @user.profile %>
   <div class="user_profile col-xs-12 col-md-8 col-md-offset-2">
-  <p><%= simple_format(@user.profile) %></p>
+  <p><%= simple_format(text_url_to_link(h(@user.profile).html_safe)) %></p>
   </div>
 <% end %>
 
@@ -60,32 +60,32 @@
 
 <div>
   <% if current_user == @user %>
-    <div class="user_tabs col-md-12">
+    <div class="user_tabs col-xs-12">
       <ul class="nav nav-tabs nav-justified">
         <li class="nav-item col-xs-4">
-          <a class="nav-link active" href="#participating_projects" data-toggle="tab">参加するプロジェクト</a>
+          <a class="nav-link active" href="#participating_projects" data-toggle="tab">参加するプロジェクト <span class="badge"><%= @not_cancelled_paticipatings.length %></a>
         </li>
         <li class="nav-item col-xs-4">
-          <a class="nav-link" href="#posted_projects">投稿したプロジェクト</a>
+          <a class="nav-link" href="#posted_projects">投稿したプロジェクト <span class="badge"><%= @user.projects.count %></span></a>
         </li>
         <li class="nav-item col-xs-4">
-          <a class="nav-link" href="#liked_projects">いいねしたプロジェクト</a>
+          <a class="nav-link" href="#liked_projects">いいねしたプロジェクト <span class="badge"><%= @user.likes.count %></span></a>
         </li>
       </ul>
       <div class="tab-content">
         <div id="participating_projects" class="tab-pane active">
-          <p><%= render 'projects/projects', projects: current_user.participatings %></p>
+          <p><%= render 'projects/projects', projects: @not_cancelled_paticipatings.order(created_at: :DESC) %></p>
         </div>
         <div id="posted_projects" class="tab-pane">
-          <%= render 'projects/projects', projects: current_user.projects %>
+          <%= render 'projects/projects', projects: current_user.projects.order(created_at: :DESC) %>
         </div>
         <div id="liked_projects" class="tab-pane">
-          <%= render 'projects/projects', projects: current_user.likes %>
+          <%= render 'projects/projects', projects: current_user.likes.order(created_at: :DESC) %>
         </div>
       </div>
     </div>
   <% else %>
-    <div class="col-md-12">
+    <div class="otheruser_posted_projects col-xs-12">
       <h4 class="col-md-12"><%= @user.name %>さんが投稿したプロジェクト</h4>
       <% if projects_url.present? %>
         <%= render 'projects/projects', projects: @user.projects %>

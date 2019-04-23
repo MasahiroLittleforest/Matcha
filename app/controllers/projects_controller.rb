@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @fresh_projects = university_projects.where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false, created_at: 1.week.ago..DateTime.now)
     @popular_projects = university_projects.joins(:reverses_of_applikation).where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false).merge(Applikation.where(cancel: false)).group(:id).having('count(*) >= 10')
     @closing_soon_projects = university_projects.where(call_off: false, deadline: DateTime.now..5.days.since)
-    @default_project_image_id = project.project_category_id
+    #@default_project_image_id = project.project_category_id
   end
 
   def show
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     @comment_to_project = CommentToProject.new
     @not_canceled_participants = User.joins(:applikations).where(applikations: { project_id: @project.id, cancel: false }).group(:id)
     @canceled_participants = User.joins(:applikations).where(applikations: { project_id: @project.id, cancel: true }).group(:id)
-    @default_project_image_id = @project.project_category_id
+    #@default_project_image_id = @project.project_category_id
   end
 
   def new

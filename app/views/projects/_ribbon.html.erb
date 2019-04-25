@@ -3,7 +3,7 @@
     <div class="ribbon called_off">
       <span class="called_off">プロジェクト中止</span>
     </div>
-  <% elsif project.deadline.past? || (project.set_the_maximum && project.reverses_of_applikation.where(cancel: false).count >= project.recruitment_numbers) %>
+  <% elsif project.deadline.past? || (project.set_the_maximum = true && project.reverses_of_applikation.where(cancel: false).count >= project.recruitment_numbers) %>
     <div class="ribbon closed">
       <span class="closed">募集終了</span>
     </div>

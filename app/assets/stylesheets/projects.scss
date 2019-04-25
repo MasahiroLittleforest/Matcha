@@ -5,53 +5,47 @@
   margin-bottom: 25px;
   display: inline-block;
   position: relative;
-}
-
-.thumbnail:hover {
-  box-shadow: 0 2px 2px gray;
-  transition: 0.1s;
-}
-
-.thumbnail_img {
-  width: 100%;
-  background-color: #dcdcdc;
-  position: relative;
   
-  &:before {
-    content: "";
-    display: block;
-    padding-top: 56%;
+  &:hover {
+    box-shadow: 0 2px 2px gray;
+    transition: 0.1s;
   }
   
-  .thumbnail_project_img {
-    max-height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  .thumbnail_img {
+    width: 100%;
+    background-color: #dcdcdc;
+    position: relative;
+  
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 56%;
+    }
+  
+    .thumbnail_project_img {
+      max-height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  
+  .thumbnail_project_title {
+    height: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .progress {
+    margin-bottom: 0;
+    
+    .progress-bar {
+      max-width: 100%;
+    }
   }
 }
 
-
-
-.thumbnail_project_title {
-  height: 2em;
-  margin-bottom: 10px;
-}
-
-.progress {
-  margin-bottom: 0;
-}
-
-.progress-bar {
-  max-width: 100%;
-}
-
-.row-eq-height {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 /* -----サムネイルにかけるリボン----- */
 .ribbon {
@@ -59,6 +53,8 @@
   height: 120px;
   overflow: hidden;
   position: absolute;
+  top: -7px;
+  left: -7px;
 }
 
 .ribbon.closed::before,
@@ -127,11 +123,6 @@
   text-align: center;
 }
 
-.ribbon {
-  top: -7px;
-  left: -7px;
-}
-
 .ribbon::before,
 .ribbon::after {
   border-top-color: transparent;
@@ -189,17 +180,35 @@
   color: #ffa500;
 }
 
+.twitter {
+  margin-top: 15px;
+  
+  .twitter-share-button {
+    display:inline-block;
+    vertical-align: middle;
+  }
+  .twitter-share-message {
+    display: inline;
+    vertical-align: middle;
+  }
+  
+  &.for-md-screen {
+    display: none;
+  }
+}
+
 .project_tabs {
   margin-top: 40px;
+  
+  .tab-content {
+    margin-top: 25px;
+    
+    .project_content {
+      font-size: 20px;
+    }
+  }
 }
 
-.project_content {
-  font-size: 20px;
-}
-
-.tab-content {
-  margin-top: 25px;
-}
 /* ------------------------------- */
 
 
@@ -229,6 +238,7 @@
 
 .projects_type_header {
   margin-bottom: 5px;
+  height: 50px;
 }
 
 .see_all {
@@ -244,6 +254,15 @@
 }
 
 
+/* -------プロジェクトフォーム--------- */
+.form_for_project {
+  .btn {
+    margin-top: 60px;
+  }
+}
+/* ------------------------------------ */
+
+
 @media (max-width:321px) {
   .projects_type > h4 {
     font-size: 15px;
@@ -252,11 +271,19 @@
   .see_more {
     margin-top: 4px;
   }
+  
+  .thumbnail {
+    .thumbnail_project_title {
+      height: 3em;
+    }
+  }
 }
 
 @media (max-width:767px) {
-  .see_all {
+  .see_all.btn {
     font-size: 12px;
+    margin-top: 0;
+    float: right;
   }
   
   .see_more {
@@ -293,8 +320,38 @@
     padding: 0;
   }
   
-  .badge {
+  .tabs_badge {
     display: none;
+  }
+}
+
+@media (max-width:991px) {
+  .twitter {
+    margin-top: 25px;
+  }
+  
+  .project_tabs {
+    padding-top: 30px;
+  }
+}
+
+@media (min-width:768px) and (max-width:1200px) {
+  .thumbnail {
+    .thumbnail_project_title {
+      height: 3em;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (min-width:991px) and (max-width:1200px) {
+  .twitter {
+    display: none;
+    
+    &.for-md-screen {
+      display: block;
+      margin-top: 25px;
+    }
   }
 }
 

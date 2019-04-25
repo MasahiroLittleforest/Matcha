@@ -24,6 +24,10 @@
   }
 }
 
+.user_edit_buttons {
+  margin-top: 60px;
+}
+
 .fas.fa-camera.fa-3x {
   position: absolute;
   top: 50%;
@@ -41,6 +45,8 @@
 
 .user_profile {
   font-size: 16px;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
 }
 
 .user_tabs {
@@ -56,6 +62,11 @@
 }
 /* ---------------------------- */
 
+
+
+
+
+
 @media (max-width:767px) {
   .nav-tabs.nav-justified > li {
     float: left;
@@ -65,6 +76,12 @@
   .user_tabs {
     .nav-link {
      font-size: 11px; 
+    }
+  }
+  
+  .user_edit_buttons {
+    .btn {
+      margin-bottom: 20px;
     }
   }
 }

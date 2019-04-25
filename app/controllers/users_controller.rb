@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_search, only: [:index, :show, :edit, :followings, :followers, :likes, :participatings]
+  before_action :correct_user, only: [:edit, :destroy]
   
   
   def index

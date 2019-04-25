@@ -32,8 +32,8 @@
 
 <%# ユーザープロフィール %>
 <% if @user.profile %>
-  <div class="user_profile col-xs-12 col-md-8 col-md-offset-2">
-  <p><%= simple_format(text_url_to_link(h(@user.profile).html_safe)) %></p>
+  <div class="user_profile col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+    <p><%= simple_format(text_url_to_link(h(@user.profile).html_safe)) %></p>
   </div>
 <% end %>
 
@@ -53,7 +53,7 @@
 </div>
 
 
-<div class="col-md-2 col-md-offset-5">
+<div class="follow_unfollow col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5">
   <%= render 'user_relationships/follow_button', user: @user %>
 </div>
 
@@ -63,13 +63,13 @@
     <div class="user_tabs col-xs-12">
       <ul class="nav nav-tabs nav-justified">
         <li class="nav-item col-xs-4">
-          <a class="nav-link active" href="#participating_projects" data-toggle="tab">参加するプロジェクト <span class="badge"><%= @not_cancelled_paticipatings.length %></a>
+          <a class="nav-link active" href="#participating_projects" data-toggle="tab">参加するプロジェクト <span class="badge tabs_badge"><%= @not_cancelled_paticipatings.length %></a>
         </li>
         <li class="nav-item col-xs-4">
-          <a class="nav-link" href="#posted_projects">投稿したプロジェクト <span class="badge"><%= @user.projects.count %></span></a>
+          <a class="nav-link" href="#posted_projects">投稿したプロジェクト <span class="badge tabs_badge"><%= @user.projects.count %></span></a>
         </li>
         <li class="nav-item col-xs-4">
-          <a class="nav-link" href="#liked_projects">いいねしたプロジェクト <span class="badge"><%= @user.likes.count %></span></a>
+          <a class="nav-link" href="#liked_projects">いいねしたプロジェクト <span class="badge tabs_badge"><%= @user.likes.count %></span></a>
         </li>
       </ul>
       <div class="tab-content">
@@ -86,7 +86,7 @@
     </div>
   <% else %>
     <div class="otheruser_posted_projects col-xs-12">
-      <h4 class="col-md-12"><%= @user.name %>さんが投稿したプロジェクト</h4>
+      <h4 class="col-xs-12"><%= @user.name %>さんが投稿したプロジェクト</h4>
       <% if projects_url.present? %>
         <%= render 'projects/projects', projects: @user.projects %>
       <% end %>

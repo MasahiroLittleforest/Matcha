@@ -17,11 +17,11 @@
             <h5><%= link_to project.title.truncate(34), project_path(project) %></h5>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <p><i class="fas fa-user"></i> <%= link_to project.user.name.truncate(11), user_path(project.user) %></p>
             </div>
-            <div class="col-md-6">
-              <p><i class="fas fa-tag"></i> <%= project.project_category.name.truncate(6) %></p>
+            <div class="col-lg-6">
+              <p><i class="fas fa-tag"></i> <%= project.project_category.name.truncate(5) %></p>
             </div>
           </div>
           <p><i class="far fa-clock"></i>

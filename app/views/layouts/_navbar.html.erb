@@ -11,42 +11,16 @@
           </button>
           <a class="navbar-brand" href="/">Matcha</a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right menu_first-level">
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
             <% if logged_in? %>
-              <li class="search-nav col-md-5">
+              <li class="search-nav col-md-2">
                 <%= render 'layouts/search' %>
               </li>
               <li><%= link_to 'プロジェクトをはじめる', new_project_path %></li>
               <li>
                 <%= link_to 'プロジェクトをさがす', projects_path %>
-                <% 
-=begin
-                %>
-                <ul class="menu_second-level">
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                  <li><%#= link_to '', %></li>
-                </ul>
-                <%
-=end
-                %>
               </li>
-  
-              <li><%#= link_to 'Users', users_path %></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
                 <ul class="dropdown-menu">

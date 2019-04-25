@@ -1,15 +1,13 @@
-<div class="row university_projects">
-    <div class="projects_type_header col-md-12">
-        <h1 class="col-md-6"><%= current_user.university.name %>内のプロジェクト</h1>
-    </div>
+<div class="row university_projects col-xs-12">
+    <h1 class="col-md-6"><%= current_user.university.name %>のプロジェクト</h1>
 </div>
 <div class="row all_projects">
-    <div class="projects_type_header col-md-12">
-        <div class="projects_type col-md-3">
-            <h4>すべてのプロジェクト</h4>
+    <div class="projects_type_header col-xs-12">
+        <div class="projects_type col-xs-9 col-sm-5 col-md-3">
+            <h4>すべてのプロジェクト <span class="badge projects_count_badge"><%= @all_projects.count %></span></h4>
         </div>
     </div>
-    <div class="project_type_body col-md-12">
+    <div class="project_type_body col-xs-12">
       <%= render 'projects/projects', projects: @all_projects %>
       <%= paginate @all_projects %>
     </div>

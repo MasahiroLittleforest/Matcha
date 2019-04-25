@@ -1,6 +1,6 @@
 <%# プロジェクトが中止されていたら/募集が終了していたらここに表示する %>
 <div class="project_result col-xs-12">
-  <% if @project.deadline.past? && (@project.participants.count < @project.recruitment_numbers) %>
+  <% if @project.deadline.past? && (@not_canceled_participants.length < @project.recruitment_numbers) %>
     <h2><span class="label label-danger col-xs-12">募集人数に達しなかったため、このプロジェクトは開催されません。</span></h2>
   <% elsif @project.call_off %>
       <h2><span class="label label-danger col-xs-12">このプロジェクトは中止されました。</span></h2>
@@ -26,10 +26,17 @@
       <%#<img class="project_img img-responsive" src="../assets/default.png">%>
     <% end %>
   </div>
+  <div class="twitter for-md-screen">
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="Matchaでおもしろいプロジェクトを見つけたよ!" data-size="large">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p class="twitter-share-message">Twitterでシェアしよう!</p>
+  </div>
 </div>
 <div class="project_details col-md-5">
-  <i class="fas fa-tag"></i> <%= @project.project_category.name %>
-  <%# <i class="fas fa-tag"></i> <%= link_to @project.project_category.name, '/projects/@project.project_category.name'  //カテゴリー別の一覧に飛ばしたい%> 
+  <div class="project_category">
+    <i class="fas fa-tag"></i> <%= @project.project_category.name %>
+    <%# <i class="fas fa-tag"></i> <%= link_to @project.project_category.name, '/projects/@project.project_category.name'  //カテゴリー別の一覧に飛ばしたい%> 
+  </div>
   <div class="project_recruitment_numbers row">
     <h2 class="col-xs-7">募集人数</h2>
     <h2 class="text-right col-xs-5"><%= @project.recruitment_numbers %>人</h2>
@@ -63,6 +70,11 @@
     <%= render 'applikations/participate_button', user: @user %>
   <% end %>
 </div>
+<div class="twitter col-xs-12 col-md-4">
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-text="Matchaでおもしろいプロジェクトを見つけたよ!" data-size="large">Tweet</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <p class="twitter-share-message">Twitterでシェアしよう!</p>
+</div>
 
 
 <div class="project_tabs col-md-12">
@@ -71,10 +83,10 @@
       <a class="nav-link active" href="#project_content" data-toggle="tab">活動内容</a>
     </li>
     <li class="nav-item col-xs-4">
-      <a class="nav-link" href="#project_participants">参加者 <span class="badge"><%= @not_canceled_participants.length %></span></a>
+      <a class="nav-link" href="#project_participants">参加者 <span class="badge tabs_badge"><%= @not_canceled_participants.length %></span></a>
     </li>
     <li class="nav-item col-xs-4">
-      <a class="nav-link" href="#project_comments">コメント <span class="badge"><%= @project.comment_to_projects.count %></span></a>
+      <a class="nav-link" href="#project_comments">コメント <span class="badge tabs_badge"><%= @project.comment_to_projects.count %></span></a>
     </li>
   </ul>
   <div class="tab-content">

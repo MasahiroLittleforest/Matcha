@@ -86,12 +86,12 @@ class User < ApplicationRecord
   
   def cancel(project)
     applikation = self.applikations.find_by(project_id: project.id)
-    applikation.update(cancel: true) if applikation
+    applikation.update(cancel: true, canceled_at: DateTime.now) if applikation
   end
   
   def rejoin(project)
     applikation = self.applikations.find_by(project_id: project.id)
-    applikation.update(cancel: false) if applikation.cancel = true
+    applikation.update(cancel: false, canceled_at: nil) if applikation.cancel = true
   end
   
   def participating?(project)

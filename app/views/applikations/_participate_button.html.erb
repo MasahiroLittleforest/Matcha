@@ -8,7 +8,7 @@
     <% else %>
       <%= link_to 'キャンセルする', cancel_applikation_path(@project), method: :put, class: 'btn btn-default btn-block' %>
     <% end %>
-  <% else %>
+  <% elsif @close_when_reaching_recruitment_numbers == false %>
     <%= form_for(current_user.applikations.build) do |f| %>
       <%= hidden_field_tag :project_id, @project.id %>
       <%= f.submit '参加する', class: 'btn btn-primary btn-block' %>

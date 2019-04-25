@@ -3,7 +3,7 @@
 </div>
 <div class="col-md-12">
   <% if @followers.count == 0 %>
-    <p class="col-md-12">フォロワーはいません</p>
+    <p class="col-md-12">フォロワーはいません。</p>
   <% else %>
     <%= render 'users/users', users: @followers %>
   <% end %>

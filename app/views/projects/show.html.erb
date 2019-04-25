@@ -1,16 +1,8 @@
 <%# プロジェクトが中止されていたら/募集が終了していたらここに表示する %>
 <div class="project_result col-xs-12">
-  <% if @project.deadline.past? && (@not_canceled_participants.length < @project.recruitment_numbers) %>
-    <h2><span class="label label-danger col-xs-12">募集人数に達しなかったため、このプロジェクトは開催されません。</span></h2>
-  <% elsif @project.call_off %>
-      <h2><span class="label label-danger col-xs-12">このプロジェクトは中止されました。</span></h2>
-  <% elsif @project.deadline.past? %>
-      <h2><span class="label label-danger col-xs-12">このプロジェクトの募集は終了しました。</span></h2>
-  <% end %>
+  <%= render 'projects/project_result' %>
 </div>
 <%# ----------------------------------------------------------------- %>
-
-
 
 <div class="project_title col-md-12">
   <h1><%= @project.title %></h1>
@@ -61,8 +53,11 @@
       <h3><%= link_to @project.user.name, user_path(@project.user) %></h3>
     </div>
   </div>
-  <% if @project.all_or_nothing == true %>
-    <p>※このプロジェクトは参加者が募集人数に達しなければ開催されません</p>
+  <% if @project.all_or_nothing %>
+    <p class="all_or_nothing_message">※このプロジェクトは参加者が募集人数に達しなければ開催されません。</p>
+  <% end %>
+  <% if @project.set_the_maximum %>
+    <p class="set_the_maximum_message">※このプロジェクトは参加者が募集人数に達し次第募集が締め切られます。キャンセルが出た場合、募集が再開されます。</p>
   <% end %>
   <% if current_user == @project.user %>
     <%= render 'projects/call_off_button', project: @project %>
@@ -94,10 +89,22 @@
       <p><%= simple_format(text_url_to_link(h(@project.content).html_safe), class:'project_content') %></p>
     </div>
     <div id="project_participants" class="tab-pane">
-      <p>参加しているユーザー</p>
-      <%= render 'users/users', users: @not_canceled_participants %>
-      <p>キャンセルしたユーザー</p>
-      <%= render 'users/users', users: @canceled_participants %>
+      <div class="not_canceled_participants">
+        <p>参加しているユーザー</p>
+        <% if @not_canceled_participants.present? %>
+          <%= render 'users/users', users: @not_canceled_participants.order("applikations.updated_at ASC") %>
+        <% else %>
+          <p class="no_notcanceled_participants">現在このプロジェクトに参加しているユーザーはいません。</p>
+        <% end %>
+      </div>
+      <div class="canceled_participants">
+        <p>キャンセルしたユーザー</p>
+        <% if @canceled_participants.present? %>
+          <%= render 'users/users', users: @canceled_participants.order("applikations.canceled_at ASC") %>
+        <% else %>
+          <p class="no_canceled_participants">現在このプロジェクトへの参加をキャンセルしたユーザーはいません。</p>
+        <% end %>
+      </div>
     </div>
     <div id="project_comments" class="tab-pane">
       <%= render 'comment_to_projects/comments', comment_to_projects: @project.comment_to_projects %>

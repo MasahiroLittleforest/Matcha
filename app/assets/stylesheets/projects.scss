@@ -92,7 +92,7 @@
   background-color: #d9534f;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 11px/1 'Lato', sans-serif;
+  font: 700 11px/1 'Noto Sans JP';
   text-shadow: 0 1px 1px rgba(0,0,0,.2);
   text-align: center;
 }
@@ -105,7 +105,7 @@
   background-color: #d9534f;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 11px/1 'Lato', sans-serif;
+  font: 700 11px/1 'Noto Sans JP';
   text-shadow: 0 1px 1px rgba(0,0,0,.2);
   text-align: center;
 }
@@ -118,7 +118,7 @@
   background-color: #ff8c00;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
-  font: 700 11px/1 'Lato', sans-serif;
+  font: 700 11px/1 'Noto Sans JP';
   text-shadow: 0 1px 1px rgba(0,0,0,.2);
   text-align: center;
 }
@@ -154,13 +154,11 @@
   display: flex;
   background-color: #dcdcdc;
   position: relative;
-  
   &:before {
     content:"";
     display: block;
     padding-top: 56%;
   }
-  
   .project_img {
     max-width: 100%;
     max-height: 100%;
@@ -174,7 +172,18 @@
   }
 }
 
-
+.project_details {
+  .all_or_nothing_message {
+    font-size: 13px;
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  .set_the_maximum_message {
+    font-size: 13px;
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+}
 
 .fas.fa-star {
   color: #ffa500;
@@ -182,7 +191,6 @@
 
 .twitter {
   margin-top: 15px;
-  
   .twitter-share-button {
     display:inline-block;
     vertical-align: middle;
@@ -191,7 +199,6 @@
     display: inline;
     vertical-align: middle;
   }
-  
   &.for-md-screen {
     display: none;
   }
@@ -199,12 +206,26 @@
 
 .project_tabs {
   margin-top: 40px;
-  
   .tab-content {
     margin-top: 25px;
-    
     .project_content {
       font-size: 20px;
+    }
+    #project_participants {
+      .not_canceled_participants {
+        margin-bottom: 50px;
+        .no_notcanceled_participants {
+          color: gray;
+          padding-left: 25px;
+        }
+      }
+      .canceled_participants {
+        margin-bottom: 50px;
+        .no_canceled_participants {
+          color: gray;
+          padding-left: 25px;
+        }
+      }
     }
   }
 }
@@ -230,9 +251,13 @@
 
 .projects_type {
   margin-bottom: 10px;
-  
   h {
     display: inline-block;
+    vertical-align: middle;
+    .badge {
+      display: inline;
+      vertical-align: middle;
+    }
   }
 }
 
@@ -275,6 +300,17 @@
   .thumbnail {
     .thumbnail_project_title {
       height: 3em;
+    }
+  }
+}
+
+@media (max-width:488px) {
+  .project_details {
+    .all_or_nothing_message {
+      font-size: 10px;
+    }
+    .set_the_maximum_message {
+      font-size: 10px;
     }
   }
 }

@@ -1,0 +1,9 @@
+<% if @project.call_off %>
+  <h2><span class="label label-danger col-xs-12">このプロジェクトは中止されました。</span></h2>
+<% elsif @close_when_reaching_recruitment_numbers %>
+  <h2><span class="label label-danger col-xs-12">参加者数が定員に達したため、募集が締め切られました。</span></h2>
+<% elsif @project.deadline.past? && (@not_canceled_participants.length < @project.recruitment_numbers) %>
+  <h2><span class="label label-danger col-xs-12">募集人数に達しなかったため、このプロジェクトは開催されません。</span></h2>
+<% elsif @project.deadline.past? %>
+  <h2><span class="label label-danger col-xs-12">このプロジェクトの募集は終了しました。</span></h2>
+<% end %>

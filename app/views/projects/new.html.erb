@@ -26,7 +26,8 @@
       <div class="form-group">
         <%= f.label :recruitment_numbers, '募集人数' %>
         <%= f.number_field :recruitment_numbers, min: 1, class: 'form-control' %>
-        <%= f.check_box :all_or_nothing %> 募集人数に達しなければ開催しない
+        <%= f.check_box :all_or_nothing %> 募集人数に達しなければ開催しない<br>
+        <%= f.check_box :set_the_maximum %> 募集人数に達し次第締め切る
       </div>
       
       <div class="form-group">

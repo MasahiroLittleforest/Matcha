@@ -20,6 +20,10 @@ body {
   font-family: "Noto Sans JP";
 }
 
+.navbar-brand {
+  font-size: 30px;
+}
+
 .search-nav {
   width: 300px;
   padding: 9px 0;
@@ -36,7 +40,7 @@ footer {
 }
 
 .badge {
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 @media (min-width: 768px) {

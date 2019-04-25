@@ -1,11 +1,11 @@
 <div class="ribbon-box">
-  <% if project.deadline.past? %>
-    <div class="ribbon closed">
-      <span class="closed">募集終了</span>
-    </div>
-  <% elsif project.call_off %>
+  <% if project.call_off %>
     <div class="ribbon called_off">
       <span class="called_off">プロジェクト中止</span>
+    </div>
+  <% elsif project.deadline.past? || (project.set_the_maximum && project.reverses_of_applikation.where(cancel: false).count >= project.recruitment_numbers) %>
+    <div class="ribbon closed">
+      <span class="closed">募集終了</span>
     </div>
   <% elsif project.deadline - DateTime.now <= 5.day %>
     <div class="ribbon closing_soon">

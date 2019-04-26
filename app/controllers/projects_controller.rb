@@ -14,8 +14,8 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @comment_to_projects = CommentToProject.all
     @comment_to_project = CommentToProject.new
-    @not_canceled_participants = User.includes(:applikations).where(applikations: { project_id: @project.id, cancel: false }).group(:id)
-    @canceled_participants = User.includes(:applikations).where(applikations: { project_id: @project.id, cancel: true }).group(:id)
+    @not_canceled_participants = User.joins(:applikations).includes(:applikations).where(applikations: { project_id: @project.id, cancel: false }).group(:id)
+    @canceled_participants = User.joins(:applikations).includes(:applikations).where(applikations: { project_id: @project.id, cancel: true }).group(:id)
     #@default_project_image_id = @project.project_category_id
     @close_when_reaching_recruitment_numbers = @project.set_the_maximum && (@not_canceled_participants.length >= @project.recruitment_numbers)
   end

@@ -20,13 +20,17 @@ body {
   font-family: "Noto Sans JP";
 }
 
-.navbar-brand {
-  font-size: 30px;
-}
-
-.search-nav {
-  width: 300px;
-  padding: 9px 0;
+.navbar {
+  .navbar-brand {
+    font-size: 30px;
+  }
+  .search-nav {
+    width: 300px;
+    padding: 9px 0;
+  }
+  .navbar-toggle {
+    margin: 8px 0;
+  }
 }
 
 footer {
@@ -43,7 +47,16 @@ footer {
   margin-bottom: 3px;
 }
 
-@media (min-width: 768px) {
+@media (max-width:767px) {
+  .navbar {
+    .navbar-brand {
+      font-size: 30px;
+      padding: 15px 0;
+    }
+  }
+}
+
+@media (min-width:768px) {
   .navbar-fixed-bottom .navbar-collapse,
   .navbar-fixed-top .navbar-collapse,
   .navbar-static-top .navbar-collapse {
@@ -51,7 +64,7 @@ footer {
   } 
 }
 
-@media (max-width: 991px) {
+@media (max-width:991px) {
   .navbar-header {
       float: none;
   }

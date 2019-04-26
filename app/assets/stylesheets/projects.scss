@@ -149,6 +149,13 @@
 
 
 /* -------プロジェクトページ------ */
+.project_result {
+  p {
+    overflow-wrap: break-word;
+　　word-wrap: break-word;
+  }
+}
+
 .project_detail_img {
   width: 100%;
   display: flex;
@@ -304,6 +311,14 @@
   }
 }
 
+@media (max-width:380px) {
+  .project_result {
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
 @media (max-width:488px) {
   .project_details {
     .all_or_nothing_message {
@@ -328,11 +343,6 @@
   
   .projects_type_header > h1 {
     font-size: 24px;
-  }
-  
-  .project_result > h2 {
-    font-size: 13px;
-    padding-bottom: 15px;
   }
   
   .project_title > h1 {
@@ -361,7 +371,36 @@
   }
 }
 
+@media (max-width:352px) {
+  .project_recruitment_numbers {
+    h2 {
+      font-size: 16px;
+    }
+  }
+  .project_participants_number {
+    h2 {
+      font-size: 16px;
+    }
+  }
+  .project_deadline {
+    h2 {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (min-width:768px) {
+  .project_result {
+    p {
+      font-size: 24px;
+    }
+  }
+}
+
 @media (max-width:991px) {
+  .project_result {
+    margin-bottom: 15px;
+  }
   .twitter {
     margin-top: 25px;
   }
@@ -378,6 +417,22 @@
     &.for-md-screen {
       display: block;
       margin-top: 25px;
+    }
+  }
+}
+
+@media (min-width:321px) and (max-width:488px) {
+  .project_result {
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (min-width:489px) and (max-width:767px) {
+  .project_result {
+    p {
+      font-size: 18px;
     }
   }
 }

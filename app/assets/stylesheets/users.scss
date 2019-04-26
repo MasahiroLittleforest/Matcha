@@ -51,6 +51,20 @@
 
 .user_tabs {
   margin-top: 40px;
+  .tab-content {
+    .no_not_canceled_participatings {
+      color: gray;
+      padding-left: 25px;
+    }
+    .no_posted_projects {
+      color: gray;
+      padding-left: 25px;
+    }
+    .no_liked_projects {
+      color: gray;
+      padding-left: 25px;
+    }
+  }
 }
 
 .otheruser_posted_projects {

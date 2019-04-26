@@ -63,7 +63,7 @@
     <div class="user_tabs col-xs-12">
       <ul class="nav nav-tabs nav-justified">
         <li class="nav-item col-xs-4">
-          <a class="nav-link active" href="#participating_projects" data-toggle="tab">参加するプロジェクト <span class="badge tabs_badge"><%= @not_cancelled_paticipatings.length %></a>
+          <a class="nav-link active" href="#participating_projects" data-toggle="tab">参加したプロジェクト <span class="badge tabs_badge"><%= @not_cancelled_paticipatings.length %></a>
         </li>
         <li class="nav-item col-xs-4">
           <a class="nav-link" href="#posted_projects">投稿したプロジェクト <span class="badge tabs_badge"><%= @user.projects.count %></span></a>
@@ -74,13 +74,25 @@
       </ul>
       <div class="tab-content">
         <div id="participating_projects" class="tab-pane active">
-          <p><%= render 'projects/projects', projects: @not_cancelled_paticipatings.order(created_at: :DESC) %></p>
+          <% if @not_cancelled_paticipatings.present? %>
+            <%= render 'projects/projects', projects: @not_cancelled_paticipatings.order(created_at: :DESC) %>
+          <% else %>
+            <p class="no_not_canceled_participatings">参加したプロジェクトはまだありません。</p>
+          <% end %>
         </div>
         <div id="posted_projects" class="tab-pane">
-          <%= render 'projects/projects', projects: current_user.projects.order(created_at: :DESC) %>
+          <% if current_user.projects.present? %>
+            <%= render 'projects/projects', projects: current_user.projects.order(created_at: :DESC) %>
+          <% else %>
+            <p class="no_posted_projects">投稿したプロジェクトはまだありません。</p>
+          <% end %>
         </div>
         <div id="liked_projects" class="tab-pane">
-          <%= render 'projects/projects', projects: current_user.likes.order(created_at: :DESC) %>
+          <% if current_user.likes.present? %>
+            <%= render 'projects/projects', projects: current_user.likes.order(created_at: :DESC) %>
+          <% else %>
+            <p class="no_liked_projects">いいねしたプロジェクトはまだありません。</p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -88,7 +100,7 @@
     <div class="otheruser_posted_projects col-xs-12">
       <h4 class="col-xs-12"><%= @user.name %>さんが投稿したプロジェクト</h4>
       <% if @user.projects.present? %>
-        <%= render 'projects/projects', projects: @user.projects %>
+        <%= render 'projects/projects', projects: @user.projects.order(created_at: :DESC) %>
       <% else %>
         <p class="no_otheruser_posted_projects col-xs-12">このユーザーが投稿したプロジェクトはまだありません。</p>
       <% end %>

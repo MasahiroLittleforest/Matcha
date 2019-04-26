@@ -27,4 +27,16 @@ class Project < ApplicationRecord
       errors.add(:deadline, "can not specify your past date as your deadline.")
     end
   end
+  
+  #def self.get_canceled_participants_in(project)
+  #  User.joins(:applikations).includes(:applikations).where(applikations: { project_id: project.id, cancel: true })
+  #end
+  
+  def get_not_canceled_participants
+    User.joins(:applikations).includes(:applikations).where(applikations: { project_id: self.id, cancel: false }).order("applikations.updated_at ASC")
+  end
+  
+  def get_canceled_participants
+    User.joins(:applikations).includes(:applikations).where(applikations: { project_id: self.id, cancel: true }).order("applikations.canceled_at ASC")
+  end
 end

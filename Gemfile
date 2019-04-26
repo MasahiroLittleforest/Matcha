@@ -67,6 +67,9 @@ gem 'jquery-turbolinks'
 gem 'gon' #Railsのインスタンス変数をJavaScriptで使えるようにする
 gem 'rails_12factor', group: :production #herokuのログ確認
 gem 'ransack' #検索機能
+gem 'rails_admin', '~> 1.3'
+gem 'cancancan', '~> 2.0'
+
 
 group :production do
   gem 'pg', '0.21.0'

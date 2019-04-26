@@ -5,6 +5,7 @@ class AuthenticatedConstraint
 end
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   constraints AuthenticatedConstraint.new do
     root to: 'projects#index', as: :user_root
   end

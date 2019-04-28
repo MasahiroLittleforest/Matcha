@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="projects_type_body col-xs-12">
-        <%= render 'projects/projects', projects: @fresh_projects %>
+        <%= render 'projects/projects', projects: @fresh_projects.limit(8) %>
     </div>
 </div>
 <div class="row popular_projects">
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="projects_type_body col-xs-12">
-        <%= render 'projects/projects', projects: @popular_projects %>
+        <%= render 'projects/projects', projects: @popular_projects.limit(8) %>
     </div>
 </div>
 <div class="row closing_soon_projects">
@@ -42,6 +42,6 @@
         </div>
     </div>
     <div class="projects_type_body col-xs-12">
-        <%= render 'projects/projects', projects: @closing_soon_projects %>
+        <%= render 'projects/projects', projects: @closing_soon_projects.limit(8) %>
     </div>
 </div>

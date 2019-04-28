@@ -1,0 +1,14 @@
+<div class="row university_projects col-xs-12">
+    <h1 class="col-md-6"><%= current_user.university.name %>のプロジェクト</h1>
+</div>
+<div class="row all_projects">
+    <div class="projects_type_header col-xs-12">
+        <div class="projects_type col-xs-12">
+            <h4>カテゴリー： "<%= @category_name %>" のプロジェクト <span class="badge projects_count_badge"><%= @category_projects.count %></span></h4>
+        </div>
+    </div>
+    <div class="project_type_body col-xs-12">
+      <%= render 'projects/projects', projects: @category_projects %>
+      <%= paginate @category_projects %>
+    </div>
+</div>

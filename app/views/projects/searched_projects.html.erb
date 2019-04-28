@@ -1,7 +1,7 @@
 <div class="row university_projects">
     <div class="projects_type_header col-md-12">
         <div class="col-md-12">
-            <h1>キーワード: "<%= params[:q][:title_or_content_cont] %>"を含むプロジェクト</h1>
+            <h1>キーワード: "<%= params[:q][:title_or_content_or_project_category_name_cont] %>"を含むプロジェクト</h1>
         </div>
     </div>
 </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="project_type_body col-md-12">
         <% if @searched_projects.count == 0 %>
-            <p class="col-md-12">"<%= params[:q][:title_or_content_cont] %>"を含むプロジェクトは見つかりませんでした</p>
+            <p class="col-md-12">"<%= params[:q][:title_or_content_or_project_category_name_cont] %>"を含むプロジェクトは見つかりませんでした</p>
         <% else %>
             <%= render 'projects/projects', projects: @searched_projects %>
             <%= paginate @searched_projects %>

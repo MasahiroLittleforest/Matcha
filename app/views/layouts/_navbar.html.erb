@@ -18,7 +18,7 @@
                 <%= render 'layouts/search' %>
               </li>
               <li><%= link_to 'プロジェクトをはじめる', new_project_path %></li>
-              <li>
+              <li class="search_projects">
                 <%= link_to 'プロジェクトをさがす', projects_path %>
               </li>
               <li class="dropdown">
@@ -35,6 +35,23 @@
             <% end %>
           </ul>
         </div>
+        <ul class="search_projects second-row col-lg-12">
+          <li>
+            <ul class="project_types">
+              <li><%= link_to 'すべてのプロジェクト', all_projects_path %></li>
+              <li><%= link_to '新着のプロジェクト', fresh_projects_path %></li>
+              <li><%= link_to '人気のプロジェクト', popular_projects_path %></li>
+              <li><%= link_to '締切間近のプロジェクト', closing_soon_projects_path %></li>
+            </ul>
+          </li>
+          <li>
+            <ul class="project_categories">
+              <% project_categories.each do |project_category| %>
+                <li><%= link_to project_category.name, "/projects/category/" + project_category.id.to_s %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

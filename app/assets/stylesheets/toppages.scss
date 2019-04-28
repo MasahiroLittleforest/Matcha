@@ -1,4 +1,104 @@
-.toppage-cover {
-  width: 100%;
+.toppage {
+  position: relative;
+  img {
+    width: 100%;
+    filter: blur(1.7px) brightness(89%);
+  }
+  .text1 {
+    color: white;
+    opacity: 0.92;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    font-size: 70px;
+    font-weight: bold;
+    font-family: "Sawarabi Gothic";
+  }
+  .text2 {
+    color: white;
+    opacity: 0.92;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-size: 70px;
+    font-weight: bold;
+    font-family: "Sawarabi Gothic";
+  }
+}
+
+
+@media (max-width:352px) {
+  .toppage {
+    .text1 {
+      top: 25%;
+      left: 10%;
+      font-size: 15px;
+    }
+    .text2 {
+      top: 60%;
+      left: 10%;
+      font-size: 15px;
+    }
+  }
+}
+
+@media (min-width:353px) and (max-width:488px) {
+  .toppage {
+    .text1 {
+      top: 25%;
+      left: 10%;
+      font-size: 20px;
+    }
+    .text2 {
+      top: 60%;
+      left: 10%;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width:489px) and (max-width:767px) {
+  .toppage {
+    .text1 {
+      top: 25%;
+      left: 10%;
+      font-size: 30px;
+    }
+    .text2 {
+      top: 60%;
+      left: 10%;
+      font-size: 30px;
+    }
+  }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .toppage {
+    .text1 {
+      top: 25%;
+      left: 10%;
+      font-size: 40px;
+    }
+    .text2 {
+      top: 60%;
+      left: 10%;
+      font-size: 40px;
+    }
+  }
+}
+
+@media (min-width:992px) and (max-width:1200px) {
+  .toppage {
+    .text1 {
+      top: 25%;
+      left: 10%;
+      font-size: 50px;
+    }
+    .text2 {
+      top: 60%;
+      left: 10%;
+      font-size: 50px;
+    }
+  }
 }
 

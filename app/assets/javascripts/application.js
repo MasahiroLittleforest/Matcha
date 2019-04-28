@@ -31,6 +31,19 @@ function showTab(selector) {
 
 
 $(function(){
+  /*
+  $('li.search_projects').hover(
+    function() {
+      $('ul.search_projects.second-row.closed').removeClass("closed");
+      $('ul.search_projects.second-row').addClass("open");
+      $('ul.search_projects.second-row.open').slideDown();
+    },
+    function() {
+      
+    }
+  );
+  */
+
   $('.datepicker').datetimepicker({
     format: "YYYY/MM/DD HH:mm",
     showClear: true,

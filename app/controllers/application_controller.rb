@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   include SessionsHelper
   
-
+  before_action :project_categories
 
   private
     def require_user_logged_in
@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     
     def university_projects
       University.find_by(id: current_user.university_id).projects.order(created_at: :DESC).page(params[:page]).per(20)
+    end
+    
+    def project_categories
+      @project_categories = ProjectCategory.all
     end
     
     def set_search

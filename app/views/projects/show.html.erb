@@ -91,7 +91,7 @@
     <div id="project_participants" class="tab-pane">
       <div class="not_canceled_participants">
         <p>参加しているユーザー</p>
-        <% if @not_canceled_participants.present? %>
+        <% if @not_canceled_participants.any? %>
           <%= render 'users/users', users: @not_canceled_participants %>
         <% else %>
           <p class="no_notcanceled_participants">現在このプロジェクトに参加しているユーザーはいません。</p>
@@ -99,7 +99,7 @@
       </div>
       <div class="canceled_participants">
         <p>キャンセルしたユーザー</p>
-        <% if @canceled_participants.present? %>
+        <% if @canceled_participants.any? %>
           <%= render 'users/users', users: @canceled_participants %>
         <% else %>
           <p class="no_canceled_participants">現在このプロジェクトへの参加をキャンセルしたユーザーはいません。</p>

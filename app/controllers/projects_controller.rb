@@ -72,7 +72,7 @@ class ProjectsController < ApplicationController
   end
   
   def fresh_projects
-    @fresh_projects = university_projects.where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false, created_at: 1.week.ago..DateTime.now).order(created_at: :DESC).page(params[:page]).per(20)
+    @fresh_projects = university_projects.where(deadline: DateTime.now..DateTime::Infinity.new, call_off: false, created_at: 1.week.ago..DateTime.now)
   end
   
   def popular_projects
@@ -80,9 +80,14 @@ class ProjectsController < ApplicationController
   end
   
   def closing_soon_projects
-    @closing_soon_projects = university_projects.where(call_off: false, deadline: DateTime.now..5.days.since).order(created_at: :DESC).page(params[:page]).per(20)
+    @closing_soon_projects = university_projects.where(call_off: false, deadline: DateTime.now..5.days.since)
   end
-
+  
+  def category_projects
+    @category_projects = university_projects.joins(:project_category).where(project_category_id: params[:id])
+    @category_name = ProjectCategory.find_by(id: params[:id]).name
+  end
+  
   def searched_projects
     @searched_projects = @search.result(distinct: true)
   end

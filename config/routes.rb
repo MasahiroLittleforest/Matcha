@@ -5,7 +5,7 @@ class AuthenticatedConstraint
 end
 
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'  　　　devise導入したら使う
   constraints AuthenticatedConstraint.new do
     root to: 'projects#index', as: :user_root
   end
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
   
   #get 'projects/category', to: 'projects#category_index'
+
   #get 'projects/category/language', to: 'projects#category_index'
   #get 'projects/category/club', to: 'projects#category_index'
   #get 'projects/category/event', to: 'projects#category_index'
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
       get 'fresh', to: 'projects#fresh_projects'
       get 'popular', to: 'projects#popular_projects'
       get 'closing_soon', to: 'projects#closing_soon_projects'
+      get 'category/:id', to: 'projects#category_projects'
       get 'search', to: 'projects#searched_projects'
     end
   end

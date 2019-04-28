@@ -20,6 +20,13 @@ body {
   font-family: "Noto Sans JP";
 }
 
+.container {
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+}
+
 .navbar {
   .navbar-brand {
     font-size: 30px;
@@ -30,6 +37,33 @@ body {
   }
   .navbar-toggle {
     margin: 8px 0;
+  }
+  .search_projects.second-row {
+    list-style: none;
+    padding: 0;
+    display: none;
+    li {
+      list-style: none;
+      a {
+        text-decoration: none;
+      }
+    }
+    .project_types {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid gray;
+      li {
+        padding: 20px 30px;
+      }
+    }
+    .project_categories {
+      clear: both;
+      padding: 20px 0;
+      columns: 4;
+      li {
+        padding: 5px;
+      }
+    }
   }
 }
 

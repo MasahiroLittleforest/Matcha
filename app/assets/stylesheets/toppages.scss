@@ -27,47 +27,77 @@
 }
 
 
-@media (max-width:352px) {
+@media (max-width:359px) {
   .toppage {
     .text1 {
-      top: 25%;
+      top: 41%;
       left: 10%;
       font-size: 15px;
     }
     .text2 {
-      top: 60%;
+      top: 51%;
       left: 10%;
       font-size: 15px;
     }
   }
 }
 
-@media (min-width:353px) and (max-width:488px) {
+@media (min-width:360px) and (max-width:419px) {
   .toppage {
     .text1 {
-      top: 25%;
+      top: 41%;
       left: 10%;
       font-size: 20px;
     }
     .text2 {
-      top: 60%;
+      top: 51%;
       left: 10%;
       font-size: 20px;
     }
   }
 }
 
-@media (min-width:489px) and (max-width:767px) {
+@media (min-width:420px) and (max-width:487px) {
   .toppage {
     .text1 {
-      top: 25%;
+      top: 41%;
+      left: 10%;
+      font-size: 25px;
+    }
+    .text2 {
+      top: 51%;
+      left: 10%;
+      font-size: 25px;
+    }
+  }
+}
+
+@media (min-width:488px) and (max-width:580px) {
+  .toppage {
+    .text1 {
+      top: 41%;
       left: 10%;
       font-size: 30px;
     }
     .text2 {
-      top: 60%;
+      top: 51%;
       left: 10%;
       font-size: 30px;
+    }
+  }
+}
+
+@media (min-width:581px) and (max-width:767px) {
+  .toppage {
+    .text1 {
+      top: 42%;
+      left: 10%;
+      font-size: 35px;
+    }
+    .text2 {
+      top: 52%;
+      left: 10%;
+      font-size: 35px;
     }
   }
 }
@@ -75,12 +105,12 @@
 @media (min-width:768px) and (max-width:991px) {
   .toppage {
     .text1 {
-      top: 25%;
+      top: 42%;
       left: 10%;
       font-size: 40px;
     }
     .text2 {
-      top: 60%;
+      top: 52%;
       left: 10%;
       font-size: 40px;
     }
@@ -90,12 +120,12 @@
 @media (min-width:992px) and (max-width:1200px) {
   .toppage {
     .text1 {
-      top: 25%;
+      top: 42%;
       left: 10%;
       font-size: 50px;
     }
     .text2 {
-      top: 60%;
+      top: 52%;
       left: 10%;
       font-size: 50px;
     }

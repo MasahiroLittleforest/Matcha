@@ -20,7 +20,7 @@
   <div class="user_img">
     <%# アイコン画像　正方形　角丸 %>
     <% if @user.image.present? %>
-      <%= image_tag @user.image.to_s, class: 'user_icon-md img-rounded', width: '130', height: '130' %>
+      <%= image_tag(@user.image.to_s, class: 'user_icon-md img-rounded', width: '130', height: '130') %>
     <% else %>
       <img class="user_icon img-rounded" src="../assets/f_f_object_115_s128_f_object_115_0bg.png">
     <% end %>

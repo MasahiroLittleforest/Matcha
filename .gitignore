@@ -17,5 +17,8 @@
 .byebug_history
 
 
-public/uploads/project/
-public/uploads/user/
+/public/uploads/project/
+/public/uploads/user/
+
+cloudinary.yml
+cloudinary.1.yml

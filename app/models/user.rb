@@ -24,16 +24,16 @@ class User < ApplicationRecord
   has_secure_password
   
   
-  has_many :projects
-  has_many :user_relationships
-  has_many :followings, through: :user_relationships, source: :follow
-  has_many :reverses_of_user_relationship, class_name: 'UserRelationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverses_of_user_relationship, source: :user
-  has_many :project_favorites
-  has_many :likes, through: :project_favorites, source: :project
-  has_many :applikations
-  has_many :participatings, through: :applikations, source: :project
-  has_many :comment_to_projects
+  has_many :projects, dependent: :destroy
+  has_many :user_relationships, dependent: :destroy
+  has_many :followings, through: :user_relationships, source: :follow, dependent: :destroy
+  has_many :reverses_of_user_relationship, class_name: 'UserRelationship', foreign_key: 'follow_id', dependent: :destroy
+  has_many :followers, through: :reverses_of_user_relationship, source: :user, dependent: :destroy
+  has_many :project_favorites, dependent: :destroy
+  has_many :likes, through: :project_favorites, source: :project, dependent: :destroy
+  has_many :applikations, dependent: :destroy
+  has_many :participatings, through: :applikations, source: :project, dependent: :destroy
+  has_many :comment_to_projects, dependent: :destroy
   
   
   mount_uploader :image, ImageUploader

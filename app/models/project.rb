@@ -12,11 +12,11 @@ class Project < ApplicationRecord
   validate :deadline_cannot_be_in_the_past
   validates :recruitment_numbers, presence: true
   
-  has_many :reverses_of_project_favorite, class_name: 'Project_favorite', foreign_key: 'project_id'
-  has_many :liked_users, through: :reverses_of_project_favorite, source: :user
-  has_many :comment_to_projects
-  has_many :reverses_of_applikation, class_name: 'Applikation', foreign_key: 'project_id'
-  has_many :participants, through: :reverses_of_applikation, source: :user
+  has_many :reverses_of_project_favorite, class_name: 'Project_favorite', foreign_key: 'project_id', dependent: :destroy
+  has_many :liked_users, through: :reverses_of_project_favorite, source: :user, dependent: :destroy
+  has_many :comment_to_projects, dependent: :destroy
+  has_many :reverses_of_applikation, class_name: 'Applikation', foreign_key: 'project_id', dependent: :destroy
+  has_many :participants, through: :reverses_of_applikation, source: :user, dependent: :destroy
   
   
   mount_uploader :image, ImageUploader  #carrierwave

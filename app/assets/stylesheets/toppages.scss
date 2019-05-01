@@ -1,7 +1,5 @@
 .toppage {
   position: relative;
-  font-weight: bold;
-  font-family: 'Sawarabi Gothic', sans-serif;
   img {
     width: 100%;
     filter: blur(1.7px) brightness(89%);
@@ -13,6 +11,8 @@
     top: 40%;
     left: 5%;
     font-size: 70px;
+    font-weight: bold;
+    font-family: 'Sawarabi Gothic', sans-serif;
   }
   .text2 {
     color: white;
@@ -21,6 +21,8 @@
     top: 50%;
     left: 5%;
     font-size: 70px;
+    font-weight: bold;
+    font-family: 'Sawarabi Gothic', sans-serif;
   }
 }
 

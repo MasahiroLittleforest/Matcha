@@ -9,7 +9,9 @@
     </div>
     <div class="project_type_body col-xs-12">
       <%= render 'projects/projects', projects: @fresh_projects %>
-      <%= paginate @fresh_projects %>
+      <div class="text-center col-xs-12">
+          <%= paginate @fresh_projects %>
+      </div>
     </div>
 </div>
 

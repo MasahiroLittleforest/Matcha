@@ -9,6 +9,8 @@
     </div>
     <div class="project_type_body col-xs-12">
       <%= render 'projects/projects', projects: @all_projects %>
-      <%= paginate @all_projects %>
+      <div class="text-center col-xs-12">
+          <%= paginate @all_projects %>
+      </div>
     </div>
 </div>

@@ -16,6 +16,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      (function(a,s,a,y,e,r){
+      r=[y];window[a]={r:r};y=document.createElement('script');
+      y.src=s;y.async=!!e;y.setAttribute('data-asayer-ns',a);
+      document.getElementsByTagName('head')[0].appendChild(y);
+      window[a].start=function(v){r.push([0])};
+      window[a].vars=function(k,v){r.push([1,k,v])};
+      window[a].event=function(t,p){r.push([2,t,p])};
+      window[a].id=Function.prototype;
+      window[a].started=function(){return false};
+      })(0,'https://static.asayer.io/asayer.js','asayer',337,1);
+    </script>
   </head>
 
   <body>

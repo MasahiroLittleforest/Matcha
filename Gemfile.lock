@@ -157,7 +157,11 @@ GEM
     nested_form (0.3.2)
     netrc (0.11.0)
     nio4r (2.3.1)
+<<<<<<< .merge_file_20wFvR
     nokogiri (1.10.5)
+=======
+    nokogiri (1.10.8)
+>>>>>>> .merge_file_7jzMsi
       mini_portile2 (~> 2.4.0)
     pg (0.21.0)
     pry (0.12.2)

@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :university_name, presence: true, on: :update, allow_blank: true
   
   
-  has_secure_password
+  has_secure_passwords
   
   
   has_many :projects, dependent: :destroy
